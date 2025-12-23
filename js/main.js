@@ -214,10 +214,67 @@ class CalculatorApp {
             this.calculator.clear();
         }
     }
+
+    setupHistoryUI() {
+        const historyToggle = document.getElementById('historyToggle');
+        const historyPanel = document.getElementById('historyPanel');
+        const historyClear = document.getElementById('historyClear');
+
+        // Toggle history panel
+        historyToggle?.addEventListener('click', () => {
+            historyPanel?.classList.toggle('active');
+        });
+
+        // Clear all history
+        historyClear?.addEventListener('click', () => {
+            this.history.clear();
+            this.updateHistoryUI();
+        });
+
+        // Handle history item clicks
+        document.getElementById('historyList')?.addEventListener('click', (e) => {
+            const deleteBtn = e.target.closest('.history-item-delete');
+            if (deleteBtn) {
+                const index = parseInt(deleteBtn.dataset.index);
+                this.history.delete(index);
+                this.updateHistoryUI();
+                return;
+            }
+
+            const item = e.target.closest('.history-item');
+            if (item && !deleteBtn) {
+                // Load result into calculator
+                const result = item.dataset.result;
+                this.calculator.currentValue = result;
+                this.display.update(this.calculator.getState());
+            }
+        });
+    }
+
+    updateHistoryUI() {
+        const historyList = document.getElementById('historyList');
+        if (!historyList) return;
+
+        const items = this.history.getAll();
+
+        if (items.length === 0) {
+            historyList.innerHTML = '<div class="history-empty">No history yet</div>';
+            return;
+        }
+
+        historyList.innerHTML = items.map((item, index) => `
+            <div class="history-item" data-result="${item.result}">
+                <div class="history-item-content">
+                    <div class="history-item-expression">${item.expression}</div>
+                    <div class="history-item-result">= ${item.result}</div>
+                </div>
+                <button class="history-item-delete" data-index="${index}" aria-label="Delete">×</button>
+            </div>
+        `).reverse().join(''); // Reverse to show newest first
+    }
 }
 
 // Initialize app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     new CalculatorApp();
 });
-```
