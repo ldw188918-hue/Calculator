@@ -1,0 +1,71 @@
+/* CSS Custom Properties */
+:root {
+    /* Colors */
+    --color-bg-primary: #1a0b2e;
+    --color-bg-secondary: #2d1b4e;
+    --color-display-bg: rgba(0, 0, 0, 0.3);
+    --color-btn-number: #2a2a3e;
+    --color-btn-operator: #6c5ce7;
+    --color-btn-operator-hover: #a29bfe;
+    --color-btn-function: #3a3a4e;
+    --color-btn-clear: #ff6b6b;
+    --color-btn-equals: #51cf66;
+    --color-text: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-error: #ff6b6b;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Typography */
+    --font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-size-display-result: 48px;
+    --font-size-display-expression: 24px;
+    --font-size-button: 18px;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+
+    /* Shadows */
+    --shadow-container: 0 20px 60px rgba(0, 0, 0, 0.3);
+    --shadow-button: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-display: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease;
+
+    /* Layout */
+    --calculator-max-width: 420px;
+    --button-gap: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    :root {
+        --font-size-display-result: 36px;
+        --font-size-display-expression: 18px;
+        --font-size-button: 16px;
+        --calculator-max-width: 100%;
+        --spacing-lg: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-display-result: 32px;
+        --font-size-button: 14px;
+        --button-gap: 6px;
+    }
+}

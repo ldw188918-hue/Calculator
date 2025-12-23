@@ -1,0 +1,115 @@
+/* Button Components */
+.btn {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-button);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+.btn:active,
+.btn.active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Number buttons */
+.btn-number {
+    background: var(--color-btn-number);
+}
+
+.btn-zero {
+    grid-column: span 1;
+}
+
+/* Operator buttons */
+.btn-operator {
+    background: linear-gradient(135deg, var(--color-btn-operator) 0%, var(--color-btn-operator-hover) 100%);
+}
+
+/* Function buttons */
+.btn-function {
+    background: var(--color-btn-function);
+    font-size: calc(var(--font-size-button) - 2px);
+}
+
+/* Memory buttons */
+.btn-memory {
+    background: var(--color-btn-function);
+    font-size: calc(var(--font-size-button) - 2px);
+}
+
+/* Clear button */
+.btn-clear {
+    background: var(--color-btn-clear);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Delete button */
+.btn-delete {
+    background: var(--color-btn-function);
+}
+
+/* Equals button */
+.btn-equals {
+    background: var(--color-btn-equals);
+    grid-column: span 2;
+    font-size: calc(var(--font-size-button) + 4px);
+}
+
+/* Constant buttons */
+.btn-constant {
+    background: var(--color-btn-function);
+    font-style: italic;
+}
+
+/* Focus states for accessibility */
+.btn:focus-visible {
+    outline: 2px solid var(--color-btn-operator);
+    outline-offset: 2px;
+}
+
+/* Responsive button sizing */
+@media (max-width: 480px) {
+    .btn {
+        min-height: 50px;
+        padding: var(--spacing-sm);
+    }
+
+    .btn-function,
+    .btn-memory {
+        font-size: calc(var(--font-size-button) - 3px);
+    }
+}
+
+/* Animation for button press */
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn.pressed {
+    animation: buttonPress var(--transition-fast);
+}

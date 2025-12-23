@@ -1,0 +1,100 @@
+/* Layout Styles */
+body {
+    font-family: var(--font-family);
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    color: var(--color-text);
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: var(--calculator-max-width);
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-container);
+}
+
+.display {
+    background: var(--color-display-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-display);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    overflow: hidden;
+}
+
+.expression {
+    font-size: var(--font-size-display-expression);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text-secondary);
+    min-height: 30px;
+    margin-bottom: var(--spacing-sm);
+    word-wrap: break-word;
+}
+
+.result {
+    font-size: var(--font-size-display-result);
+    font-weight: var(--font-weight-light);
+    color: var(--color-text);
+    word-wrap: break-word;
+    transition: color var(--transition-normal);
+}
+
+.result.error {
+    color: var(--color-error);
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--button-gap);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .calculator {
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+
+    .display {
+        min-height: 100px;
+    }
+}
