@@ -3,6 +3,7 @@ import { Calculator } from './calculator.js';
 import { ScientificFunctions } from './scientific.js';
 import { Memory } from './memory.js';
 import { Display } from './display.js';
+import { History } from './history.js';
 import { CONSTANTS, ErrorHandler } from './utils.js';
 
 class CalculatorApp {
@@ -11,8 +12,10 @@ class CalculatorApp {
         this.scientific = new ScientificFunctions();
         this.memory = new Memory();
         this.display = new Display();
+        this.history = new History();
 
         this.setupEventListeners();
+        this.setupHistoryUI();
     }
 
     setupEventListeners() {
@@ -85,7 +88,19 @@ class CalculatorApp {
             case '÷':
             case '%':
             case '=':
+                const prevValue = this.calculator.currentValue;
+                const prevOperator = this.calculator.operator;
+                const prevPrevValue = this.calculator.previousValue;
+
                 this.calculator.performOperation(action);
+
+                // Save to history when calculation completes
+                if (action === '=' && prevOperator && prevPrevValue !== null) {
+                    const expression = `${prevPrevValue} ${prevOperator} ${prevValue}`;
+                    const result = this.calculator.currentValue;
+                    this.history.add(expression, result);
+                    this.updateHistoryUI();
+                }
                 break;
 
             // Scientific functions
@@ -205,3 +220,4 @@ class CalculatorApp {
 document.addEventListener('DOMContentLoaded', () => {
     new CalculatorApp();
 });
+```
