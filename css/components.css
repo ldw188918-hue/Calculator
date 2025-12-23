@@ -29,6 +29,7 @@
 /* Number buttons */
 .btn-number {
     background: var(--color-button-number);
+    border: 1px solid rgba(151, 117, 250, 0.15);
 }
 
 .btn-zero {
@@ -38,11 +39,13 @@
 /* Operator buttons */
 .btn-operator {
     background: var(--color-button-operator);
+    color: #ffffff;
 }
 
 /* Function buttons */
 .btn-function {
     background: var(--color-button-function);
+    border: 1px solid rgba(151, 117, 250, 0.15);
     font-size: calc(var(--font-size-button) - 2px);
 }
 

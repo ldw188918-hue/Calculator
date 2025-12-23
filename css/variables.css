@@ -1,26 +1,27 @@
 /* CSS Custom Properties */
 :root {
-    /* Colors - Light Purple Theme */
-    --color-bg-primary: #1a0b2e;
-    --color-bg-secondary: #2d1b4e;
-    --color-bg-gradient-start: #1a0b2e;
-    --color-bg-gradient-end: #2d1b4e;
+    /* Colors - Light Purple Theme with White Background */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f8f9fa;
+    --color-bg-gradient-start: #ffffff;
+    --color-bg-gradient-end: #f0f0f5;
 
-    /* Updated to Light Purple */
-    --color-primary: #b197fc;
-    --color-primary-light: #e5dbff;
-    --color-secondary: #9775fa;
+    /* Updated to Light Purple for Light Mode */
+    --color-primary: #9775fa;
+    --color-primary-light: #b197fc;
+    --color-secondary: #7950f2;
     --color-accent: #d0bfff;
 
-    --color-display-bg: rgba(0, 0, 0, 0.3);
-    --color-button-number: #2a2a3e;
-    --color-button-operator: linear-gradient(135deg, #b197fc 0%, #e5dbff 100%);
-    --color-button-function: #3a3a4e;
+    --color-display-bg: rgba(240, 240, 250, 0.8);
+    --color-button-number: #f8f9fa;
+    --color-button-operator: linear-gradient(135deg, #b197fc 0%, #d0bfff 100%);
+    --color-button-function: #e9ecef;
     --color-button-clear: #ff6b6b;
     --color-button-equals: #51cf66;
-    --color-text: #ffffff;
-    --color-text-secondary: rgba(255, 255, 255, 0.7);
+    --color-text: #212529;
+    --color-text-secondary: rgba(33, 37, 41, 0.6);
     --color-error: #ff6b6b;
+    --color-shadow: rgba(0, 0, 0, 0.1);
 
     /* Spacing */
     --spacing-xs: 4px;
