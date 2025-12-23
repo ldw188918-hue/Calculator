@@ -1,0 +1,190 @@
+# Calculator Web App - Development Walkthrough
+
+## 📋 요약
+
+공학용 전자 계산기 웹 애플리케이션을 성공적으로 구현했습니다. 모던한 디자인과 완전한 기능을 갖춘 계산기로, GitHub Pages를 통해 자동 배포됩니다.
+
+---
+
+## ✨ 구현된 기능
+
+### 기본 기능
+- ✅ 기본 산술 연산 (+, -, ×, ÷, %)
+- ✅ 소수점 입력
+- ✅ 전체 삭제 (AC) 및 한 자리 삭제 (DEL)
+
+### 과학 함수
+- ✅ 삼각 함수: sin, cos, tan (각도 입력)
+- ✅ 로그 함수: ln (자연로그), log (상용로그)
+- ✅ 지수 함수: e^x, 10^x, x^y
+- ✅ 제곱/제곱근: √, x², x³
+- ✅ 팩토리얼: n!
+
+### 메모리 기능
+- ✅ MC (Memory Clear) - 메모리 초기화
+- ✅ MR (Memory Recall) - 메모리 값 불러오기
+- ✅ M+ (Memory Add) - 메모리에 값 추가
+- ✅ M- (Memory Subtract) - 메모리에서 값 빼기
+
+### 상수
+- ✅ π (파이) - 3.14159...
+- ✅ e (오일러 수) - 2.71828...
+
+### 사용자 경험
+- ✅ 키보드 입력 지원 (숫자, 연산자, Enter, Escape, Backspace)
+- ✅ 에러 처리 (0으로 나누기, 도메인 에러 등)
+- ✅ 햅틱 피드백 (모바일)
+- ✅ 과학적 표기법 지원 (큰 숫자/작은 숫자)
+- ✅ requestAnimationFrame으로 성능 최적화
+
+---
+
+## 🎨 디자인
+
+### 스타일
+- **글래스모피즘** 디자인 with backdrop blur
+- **다크 테마** with 보라-핑크 그라디언트 배경
+- **반응형 디자인** (데스크톱, 태블릿, 모바일)
+- **애니메이션** (버튼 호버, 클릭 효과, 에러 쉐이크)
+
+### 색상 팔레트
+- 배경: `#1a0b2e` → `#2d1b4e` (그라디언트)
+- 숫자 버튼: `#2a2a3e`
+- 연산자 버튼: `#6c5ce7` → `#a29bfe` (그라디언트)
+- AC 버튼: `#ff6b6b`
+- = 버튼: `#51cf66`
+
+---
+
+## 📁 프로젝트 구조
+
+```
+Calculator/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions 자동 배포
+├── assets/
+│   └── design-reference.png    # 디자인 참고 이미지
+├── css/
+│   ├── reset.css               # CSS 리셋
+│   ├── variables.css           # CSS 변수 (디자인 시스템)
+│   ├── layout.css              # 레이아웃 스타일
+│   └── components.css          # 컴포넌트 스타일 (버튼, 디스플레이)
+├── doc/
+│   ├── prd.md                  # Product Requirements Document
+│   └── tech_spec.md            # Technical Specification
+├── js/
+│   ├── calculator.js           # Calculator 핵심 로직
+│   ├── scientific.js           # 과학 함수
+│   ├── memory.js               # 메모리 기능
+│   ├── display.js              # 디스플레이 관리
+│   ├── utils.js                # 유틸리티 함수
+│   └── main.js                 # 앱 진입점
+├── .gitignore                  # Git 무시 파일
+├── index.html                  # 메인 HTML
+├── package.json                # NPM 설정
+├── vite.config.js              # Vite 빌드 설정
+└── README.md                   # 프로젝트 문서
+```
+
+---
+
+## 🏗️ 기술 스택
+
+### Frontend
+- **HTML5** - 시맨틱 마크업, ARIA 레이블
+- **CSS3** - Vanilla CSS, CSS Variables, Flexbox/Grid
+- **JavaScript ES6+** - 모듈 시스템, 클래스, async/await
+
+### Build & Deploy
+- **Vite** - 빠른 빌드 도구
+- **GitHub Actions** - CI/CD 파이프라인
+- **GitHub Pages** - 무료 호스팅
+
+---
+
+## 🚀 배포 가이드
+
+### 1단계: GitHub 저장소 생성
+
+1. [GitHub](https://github.com)에 로그인
+2. 우측 상단 **+** → **New repository** 클릭
+3. Repository name: [Calculator](file:///C:/Users/WIN/workspace/Calculator)
+4. Public 선택
+5. **Create repository** 클릭
+
+### 2단계: 원격 저장소 연결
+
+터미널에서 다음 명령어 실행:
+
+```bash
+# 원격 저장소 추가 (username을 본인의 GitHub 아이디로 변경)
+git remote add origin https://github.com/<username>/Calculator.git
+
+# main 브랜치로 푸시
+git push -u origin main
+```
+
+### 3단계: GitHub Pages 활성화
+
+1. GitHub 저장소 페이지에서 **Settings** 클릭
+2. 좌측 메뉴에서 **Pages** 클릭
+3. **Source** 섹션에서 **GitHub Actions** 선택
+4. 자동으로 워크플로우가 실행됩니다
+
+### 4단계: 배포 확인
+
+1. **Actions** 탭에서 워크플로우 실행 상태 확인
+2. 완료되면 다음 URL에서 확인:
+   ```
+   https://<username>.github.io/Calculator/
+   ```
+
+---
+
+## 🧪 로컬 개발 (Node.js 설치 필요)
+
+### 설치
+```bash
+npm install
+```
+
+### 개발 서버 실행
+```bash
+npm run dev
+```
+http://localhost:3000 에서 확인 가능
+
+### 프로덕션 빌드
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## 📝 다음 단계
+
+### 즉시 가능한 개선사항
+1. **TDD 구현** - `.agent/rules/tdd.md` 규칙에 따라 테스트 작성
+2. **SOLID 원칙 적용** - 코드 리팩토링
+
+### Phase 2 기능 (향후)
+- [ ] 계산 히스토리
+- [ ] 각도 모드 전환 (DEG/RAD)
+- [ ] 테마 변경 (라이트/다크)
+- [ ] 단위 변환기
+- [ ] PWA 전환 (오프라인 지원)
+
+---
+
+## 🎉 완료!
+
+공학용 계산기 웹앱이 성공적으로 구현되었습니다. 이제 GitHub에 푸시하고 전 세계에 공유하세요!
+
+**배포 URL**: `https://<username>.github.io/Calculator/`
+
+---
+
+**작성일**: 2025-12-23  
+**버전**: 1.0.0
