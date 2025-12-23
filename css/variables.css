@@ -1,15 +1,23 @@
 /* CSS Custom Properties */
 :root {
-    /* Colors */
+    /* Colors - Light Purple Theme */
     --color-bg-primary: #1a0b2e;
     --color-bg-secondary: #2d1b4e;
+    --color-bg-gradient-start: #1a0b2e;
+    --color-bg-gradient-end: #2d1b4e;
+
+    /* Updated to Light Purple */
+    --color-primary: #b197fc;
+    --color-primary-light: #e5dbff;
+    --color-secondary: #9775fa;
+    --color-accent: #d0bfff;
+
     --color-display-bg: rgba(0, 0, 0, 0.3);
-    --color-btn-number: #2a2a3e;
-    --color-btn-operator: #6c5ce7;
-    --color-btn-operator-hover: #a29bfe;
-    --color-btn-function: #3a3a4e;
-    --color-btn-clear: #ff6b6b;
-    --color-btn-equals: #51cf66;
+    --color-button-number: #2a2a3e;
+    --color-button-operator: linear-gradient(135deg, #b197fc 0%, #e5dbff 100%);
+    --color-button-function: #3a3a4e;
+    --color-button-clear: #ff6b6b;
+    --color-button-equals: #51cf66;
     --color-text: #ffffff;
     --color-text-secondary: rgba(255, 255, 255, 0.7);
     --color-error: #ff6b6b;
