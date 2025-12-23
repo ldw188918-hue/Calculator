@@ -28,7 +28,7 @@
 
 /* Number buttons */
 .btn-number {
-    background: var(--color-btn-number);
+    background: var(--color-button-number);
 }
 
 .btn-zero {
@@ -37,49 +37,207 @@
 
 /* Operator buttons */
 .btn-operator {
-    background: linear-gradient(135deg, var(--color-btn-operator) 0%, var(--color-btn-operator-hover) 100%);
+    background: var(--color-button-operator);
 }
 
 /* Function buttons */
 .btn-function {
-    background: var(--color-btn-function);
+    background: var(--color-button-function);
     font-size: calc(var(--font-size-button) - 2px);
 }
 
 /* Memory buttons */
 .btn-memory {
-    background: var(--color-btn-function);
+    background: var(--color-button-function);
     font-size: calc(var(--font-size-button) - 2px);
 }
 
 /* Clear button */
 .btn-clear {
-    background: var(--color-btn-clear);
+    background: var(--color-button-clear);
     font-weight: var(--font-weight-medium);
 }
 
 /* Delete button */
 .btn-delete {
-    background: var(--color-btn-function);
+    background: var(--color-button-function);
 }
 
 /* Equals button */
 .btn-equals {
-    background: var(--color-btn-equals);
+    background: var(--color-button-equals);
     grid-column: span 2;
     font-size: calc(var(--font-size-button) + 4px);
 }
 
 /* Constant buttons */
 .btn-constant {
-    background: var(--color-btn-function);
+    background: var(--color-button-function);
     font-style: italic;
 }
 
 /* Focus states for accessibility */
 .btn:focus-visible {
-    outline: 2px solid var(--color-btn-operator);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
+}
+
+/* ===========================
+   History Panel Styles
+   =========================== */
+
+.history-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(177, 151, 252, 0.2);
+    border: 1px solid var(--color-primary);
+    color: var(--color-text);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-fast);
+    z-index: 10;
+}
+
+.history-toggle:hover {
+    background: rgba(177, 151, 252, 0.3);
+    transform: translateY(-1px);
+}
+
+.history-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.history-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 0;
+    background: rgba(26, 11, 46, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--color-primary);
+    overflow: hidden;
+    transition: max-height var(--transition-normal) ease-in-out;
+    z-index: 5;
+}
+
+.history-panel.active {
+    max-height: 300px;
+}
+
+.history-header {
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(177, 151, 252, 0.2);
+}
+
+.history-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+}
+
+.history-clear {
+    background: rgba(255, 107, 107, 0.2);
+    border: 1px solid var(--color-button-clear);
+    color: var(--color-text);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.history-clear:hover {
+    background: rgba(255, 107, 107, 0.3);
+}
+
+.history-list {
+    max-height: 220px;
+    overflow-y: auto;
+    padding: var(--spacing-sm);
+}
+
+.history-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 3px;
+}
+
+.history-item {
+    background: rgba(42, 42, 62, 0.5);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.history-item:hover {
+    background: rgba(177, 151, 252, 0.2);
+    transform: translateX(4px);
+}
+
+.history-item-content {
+    flex: 1;
+}
+
+.history-item-expression {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 2px;
+}
+
+.history-item-result {
+    font-size: 16px;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.history-item-delete {
+    background: transparent;
+    border: none;
+    color: var(--color-error);
+    cursor: pointer;
+    padding: 4px 8px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    font-size: 18px;
+}
+
+.history-item:hover .history-item-delete {
+    opacity: 1;
+}
+
+.history-item-delete:hover {
+    color: #ff6b6b;
+}
+
+.history-empty {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--color-text-secondary);
+    font-size: 14px;
 }
 
 /* Responsive button sizing */
@@ -92,6 +250,15 @@
     .btn-function,
     .btn-memory {
         font-size: calc(var(--font-size-button) - 3px);
+    }
+
+    .history-toggle {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .history-panel.active {
+        max-height: 250px;
     }
 }
 
